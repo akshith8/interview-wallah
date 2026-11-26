@@ -3,169 +3,401 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Interview Wallah | AI mock interview coach</title>
+  <title>Interview Wallah — Practise Speaking Out Loud</title>
   <meta name="description" content="Practise interview answers and presentations out loud and get instant feedback on pace, filler words and structure.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
 
   <header class="site-header">
-    <div class="container w-6xl header-inner">
-      <a href="#top" class="brand">Interview Wallah</a>
-      <nav class="nav">
-        <a href="#about">About</a>
-        <a href="#practice">Try it</a>
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <svg class="brand-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="2" y="9" width="2.2" height="6" rx="1.1" fill="currentColor"/>
+          <rect x="6.5" y="5" width="2.2" height="14" rx="1.1" fill="currentColor"/>
+          <rect x="11" y="2" width="2.2" height="20" rx="1.1" fill="#c25937"/>
+          <rect x="15.5" y="6" width="2.2" height="12" rx="1.1" fill="currentColor"/>
+          <rect x="20" y="9" width="2.2" height="6" rx="1.1" fill="currentColor"/>
+        </svg>
+        <span>Interview Wallah</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#about">How it works</a>
+        <a href="#prompts">Prompts</a>
         <a href="#built-for">Who it's for</a>
         <a href="#faq">FAQ</a>
+        <a href="report.html?session=demo">Sample report</a>
       </nav>
-      <a href="#practice" class="btn btn-solid header-cta">Start practising</a>
+
+      <div class="header-actions">
+        <a href="interview.html" class="btn btn-solid btn-sm">
+          Open studio <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
     </div>
   </header>
 
   <main id="top">
 
-    <!-- Hero -->
-    <section class="container w-6xl hero">
-      <p class="eyebrow">AI mock interview coach</p>
-      <h1>
-        Practise speaking <em>out loud</em>,<br class="md-br"> before it counts.
-      </h1>
-      <p class="hero-sub">
-        Answer interview questions or rehearse a presentation by voice and get instant
-        feedback on your pace, filler words and structure.
-      </p>
-      <div class="hero-actions">
-        <a href="#practice" class="btn btn-solid">Try a practice question</a>
-        <a href="#about" class="btn btn-ghost">How it works</a>
-      </div>
-    </section>
-
-    <!-- Marquee (items are filled in by script.js) -->
-    <section class="marquee" aria-label="Common interview questions">
-      <div class="marquee-track"></div>
-    </section>
-
-    <!-- About -->
-    <section id="about" class="container w-6xl section">
-      <h2 class="h2">Reading answers in your head is not practice.</h2>
-      <p class="about-text">
-        Interviews are spoken. Interview Wallah makes you rehearse the way you will perform,
-        and shows you exactly where your delivery slips.
-      </p>
-      <div class="grid steps">
-        <div class="step">
-          <span class="step-n">01</span>
-          <h3>Pick a question</h3>
-          <p>Choose a common interview question or bring your own talk.</p>
-        </div>
-        <div class="step">
-          <span class="step-n">02</span>
-          <h3>Speak your answer</h3>
-          <p>Record out loud, just like the real thing. No typing.</p>
-        </div>
-        <div class="step">
-          <span class="step-n">03</span>
-          <h3>Get feedback</h3>
-          <p>See your pace, filler words and a score, with tips to improve.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Practice demo -->
-    <section id="practice" class="container w-4xl section">
-      <h2 class="h2">Try it now</h2>
-      <p class="lead">Pick a question, answer out loud, and see how you did.</p>
-
-      <div class="card">
-        <div id="q-tabs" class="q-tabs"></div>
-        <p id="question" class="question"></p>
-
-        <div class="rec-row">
-          <button id="rec-btn" type="button" class="btn btn-solid rec-btn">Start recording</button>
-          <p id="unsupported" class="unsupported" hidden>
-            Voice input is not supported in this browser. Type your answer below and enter the time you took.
+    <!-- Editorial Split Hero -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="kicker">Spoken Delivery Coach</p>
+          <h1 class="hero-title">
+            Practise speaking <em>out loud</em>, before it counts.
+          </h1>
+          <p class="hero-sub">
+            Rehearsing in your head hides pacing slips and verbal crutches. Speak your answer into our browser studio and get an immediate breakdown of cadence, filler words, and clarity.
           </p>
-          <span id="timer" class="timer">0:00</span>
+          <div class="hero-actions">
+            <a href="interview.html" class="btn btn-solid">
+              Start a practice session <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+            <a href="report.html?session=demo" class="btn btn-ghost">
+              Inspect a sample report
+            </a>
+          </div>
+
+          <dl class="hero-meta">
+            <div>
+              <dt class="hero-stat-value">120–170</dt>
+              <dd class="hero-stat-label">Target words / minute</dd>
+            </div>
+            <div>
+              <dt class="hero-stat-value">15+</dt>
+              <dd class="hero-stat-label">Filler patterns caught</dd>
+            </div>
+            <div>
+              <dt class="hero-stat-value">Local</dt>
+              <dd class="hero-stat-label">Runs right in browser</dd>
+            </div>
+          </dl>
         </div>
 
-        <textarea id="transcript" class="transcript" rows="5" placeholder="Your transcript will appear here..."></textarea>
+        <!-- Kinetic Acoustic Telemetry Motion Graphic -->
+        <aside class="telemetry-card" id="hero-telemetry" aria-label="Interactive cadence preview">
+          <div class="telemetry-top">
+            <span class="telemetry-status">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span id="telemetry-state-label">Cadence simulation · Steady</span>
+            </span>
+            <button type="button" class="motion-toggle" id="motion-toggle">Pause</button>
+          </div>
 
-        <label id="secs-label" class="secs-label">
-          Seconds taken:
-          <input id="secs-input" class="secs-input" type="number" min="1">
-        </label>
+          <div class="telemetry-modes" role="group" aria-label="Delivery style examples">
+            <button type="button" class="mode-chip is-active" data-mode="steady">Steady · 142 wpm</button>
+            <button type="button" class="mode-chip" data-mode="rushed">Rushed · 194 wpm</button>
+            <button type="button" class="mode-chip" data-mode="hesitant">Hesitant · 86 wpm</button>
+          </div>
 
-        <button id="feedback-btn" type="button" class="btn btn-outline feedback-btn" disabled>Get feedback</button>
+          <div class="wave-stage">
+            <canvas id="hero-wave" class="wave-canvas" width="520" height="112" aria-hidden="true"></canvas>
+            <div class="wave-footer">
+              <span id="wave-hz">Harmonic envelope · 142 WPM</span>
+              <span id="wave-fillers">0 fillers flagged</span>
+            </div>
+          </div>
 
-        <div id="result" class="result" hidden></div>
+          <div class="telemetry-readout">
+            <div class="dial-wrap" aria-hidden="true">
+              <svg class="dial-svg" viewBox="0 0 96 96">
+                <circle class="dial-track" cx="48" cy="48" r="39"></circle>
+                <circle class="dial-arc" id="dial-arc" cx="48" cy="48" r="39" stroke-dasharray="245.04" stroke-dashoffset="72"></circle>
+              </svg>
+              <div class="dial-center">
+                <span class="dial-wpm" id="dial-wpm">142</span>
+                <span class="dial-unit">wpm</span>
+              </div>
+            </div>
+
+            <p class="transcript-preview" id="telemetry-transcript">
+              “In my last role I cut onboarding time by 35% <span class="pause-tag">0.6s pause</span> by pairing new hires with recorded walkthroughs.”
+            </p>
+          </div>
+
+          <div class="telemetry-cta">
+            <span class="telemetry-note">Ready to test your own voice?</span>
+            <a href="interview.html" class="btn btn-outline btn-sm">
+              Launch demo <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+        </aside>
       </div>
     </section>
 
-    <!-- Built for -->
+    <!-- How it Works + Interactive Motion Breakdown -->
+    <section id="about" class="section">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <div>
+            <p class="kicker">Why speak out loud</p>
+            <h2 class="section-heading">Reading answers silently is <em>not</em> rehearsal.</h2>
+          </div>
+          <p class="section-lead">
+            Under pressure, pace accelerates and filler phrases creep in between thoughts. Hearing and measuring your spoken rhythm makes weak spots obvious in one take.
+          </p>
+        </div>
+
+        <div class="anatomy-grid">
+          <div class="anatomy-stage reveal-on-scroll">
+            <div class="cadence-header">
+              <h3 class="cadence-title">Anatomy of a 45-second answer</h3>
+              <div class="cadence-legend">
+                <span><span class="legend-swatch" style="background: var(--moss);"></span>Pace (WPM)</span>
+                <span><span class="legend-swatch" style="background: var(--clay);"></span>Inflection point</span>
+              </div>
+            </div>
+
+            <svg class="cadence-svg" viewBox="0 0 560 190" role="img" aria-label="Interactive speaking pace curve with four key moments">
+              <defs>
+                <linearGradient id="cadence-fill" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#244030" stop-opacity="0.22"/>
+                  <stop offset="100%" stop-color="#244030" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+
+              <!-- Optimal pace band (120-170 WPM) -->
+              <rect x="30" y="55" width="500" height="58" rx="6" fill="rgba(36, 64, 48, 0.07)"/>
+              <line x1="30" y1="55" x2="530" y2="55" stroke="rgba(36,64,48,0.22)" stroke-dasharray="4 4"/>
+              <line x1="30" y1="113" x2="530" y2="113" stroke="rgba(36,64,48,0.22)" stroke-dasharray="4 4"/>
+              <text x="524" y="49" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="10" fill="#57534e">170 WPM</text>
+              <text x="524" y="126" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="10" fill="#57534e">120 WPM</text>
+
+              <!-- Pace Curve & Area -->
+              <path class="cadence-area" d="M35,130 C90,118 110,82 155,84 C215,87 240,38 295,46 C345,54 370,96 420,90 C465,84 495,78 525,86 L525,165 L35,165 Z"/>
+              <path id="cadence-line" class="cadence-path" d="M35,130 C90,118 110,82 155,84 C215,87 240,38 295,46 C345,54 370,96 420,90 C465,84 495,78 525,86"/>
+
+              <!-- Axis timestamps -->
+              <text x="35" y="182" font-family="JetBrains Mono, monospace" font-size="10" fill="#57534e">0:00</text>
+              <text x="195" y="182" font-family="JetBrains Mono, monospace" font-size="10" fill="#57534e">0:15</text>
+              <text x="360" y="182" font-family="JetBrains Mono, monospace" font-size="10" fill="#57534e">0:30</text>
+              <text x="505" y="182" font-family="JetBrains Mono, monospace" font-size="10" fill="#57534e">0:45</text>
+
+              <!-- Interactive Inflection Markers -->
+              <g class="cadence-marker is-active" tabindex="0" role="button" aria-label="Moment 1: Opening hook" data-step="0">
+                <circle cx="155" cy="84" r="14" fill="rgba(36, 64, 48, 0.14)"/>
+                <circle cx="155" cy="84" r="6" fill="#244030"/>
+              </g>
+              <g class="cadence-marker" tabindex="0" role="button" aria-label="Moment 2: Filler spike" data-step="1">
+                <circle cx="295" cy="46" r="14" fill="rgba(194, 89, 55, 0.18)"/>
+                <circle cx="295" cy="46" r="6" fill="#c25937"/>
+              </g>
+              <g class="cadence-marker" tabindex="0" role="button" aria-label="Moment 3: Concrete result" data-step="2">
+                <circle cx="420" cy="90" r="14" fill="rgba(36, 64, 48, 0.14)"/>
+                <circle cx="420" cy="90" r="6" fill="#244030"/>
+              </g>
+              <g class="cadence-marker" tabindex="0" role="button" aria-label="Moment 4: Clean close" data-step="3">
+                <circle cx="525" cy="86" r="14" fill="rgba(36, 64, 48, 0.14)"/>
+                <circle cx="525" cy="86" r="6" fill="#244030"/>
+              </g>
+            </svg>
+
+            <div class="cadence-detail" id="cadence-detail">
+              <div>
+                <div class="cadence-detail-label" id="cadence-moment-label">0:11 · Opening hook</div>
+                <p class="cadence-detail-text" id="cadence-moment-text">Clear thesis statement sets context without rushing the first sentence.</p>
+              </div>
+              <div class="cadence-detail-metric" id="cadence-moment-metric">138 WPM · 0 fillers</div>
+            </div>
+          </div>
+
+          <ol class="method-steps reveal-on-scroll">
+            <li class="method-step">
+              <span class="method-num">01</span>
+              <div>
+                <h3>Pick a prompt or bring your own</h3>
+                <p>Select a classic behavioural prompt or paste the opening of a talk you have coming up.</p>
+              </div>
+            </li>
+            <li class="method-step">
+              <span class="method-num">02</span>
+              <div>
+                <h3>Speak in the live studio</h3>
+                <p>Watch your live voice resonance and timer while browser speech recognition transcribes in real time.</p>
+              </div>
+            </li>
+            <li class="method-step">
+              <span class="method-num">03</span>
+              <div>
+                <h3>Review your spoken report</h3>
+                <p>Jump straight to a dedicated report showing your score, WPM band, flagged filler words, and tailored tips.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- Prompt Ledger (Replaces Marquee; Directs into interview.html) -->
+    <section id="prompts" class="section">
+      <div class="container">
+        <div class="section-header reveal-on-scroll">
+          <div>
+            <p class="kicker">Prompt Index</p>
+            <h2 class="section-heading">Choose a question to open in the studio.</h2>
+          </div>
+          <p class="section-lead">
+            Every prompt launches directly in our distraction-free practice room. No sign-up required.
+          </p>
+        </div>
+
+        <div class="prompt-ledger reveal-on-scroll">
+          <a href="interview.html?q=0" class="prompt-row">
+            <span class="prompt-idx">01</span>
+            <div class="prompt-main">
+              <div class="prompt-q">Tell me about yourself.</div>
+              <div class="prompt-tags">Opening pitch · Target 60–90s</div>
+            </div>
+            <span class="prompt-go">Practise <span class="btn-arrow" aria-hidden="true">&rarr;</span></span>
+          </a>
+
+          <a href="interview.html?q=1" class="prompt-row">
+            <span class="prompt-idx">02</span>
+            <div class="prompt-main">
+              <div class="prompt-q">Why do you want to work here?</div>
+              <div class="prompt-tags">Motivation &amp; fit · Target 45–75s</div>
+            </div>
+            <span class="prompt-go">Practise <span class="btn-arrow" aria-hidden="true">&rarr;</span></span>
+          </a>
+
+          <a href="interview.html?q=2" class="prompt-row">
+            <span class="prompt-idx">03</span>
+            <div class="prompt-main">
+              <div class="prompt-q">Describe a time you handled a difficult situation.</div>
+              <div class="prompt-tags">STAR structure · Target 60–90s</div>
+            </div>
+            <span class="prompt-go">Practise <span class="btn-arrow" aria-hidden="true">&rarr;</span></span>
+          </a>
+
+          <a href="interview.html?q=3" class="prompt-row">
+            <span class="prompt-idx">04</span>
+            <div class="prompt-main">
+              <div class="prompt-q">What is your biggest weakness?</div>
+              <div class="prompt-tags">Self-awareness · Target 45–60s</div>
+            </div>
+            <span class="prompt-go">Practise <span class="btn-arrow" aria-hidden="true">&rarr;</span></span>
+          </a>
+
+          <a href="interview.html?q=4" class="prompt-row">
+            <span class="prompt-idx">05</span>
+            <div class="prompt-main">
+              <div class="prompt-q">Walk me through a project you led end-to-end.</div>
+              <div class="prompt-tags">Ownership &amp; impact · Target 90s</div>
+            </div>
+            <span class="prompt-go">Practise <span class="btn-arrow" aria-hidden="true">&rarr;</span></span>
+          </a>
+        </div>
+
+        <div class="ledger-footer reveal-on-scroll">
+          <p class="section-lead">Rehearsing a presentation or custom question instead?</p>
+          <a href="interview.html?custom=1" class="btn btn-solid">
+            Bring your own prompt <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Built For -->
     <section id="built-for" class="built-for">
-      <div class="container w-6xl">
-        <h2>Built for people who talk for a living, or are about to.</h2>
-        <div class="grid people">
-          <div class="person">
+      <div class="container">
+        <div class="built-for-top reveal-on-scroll">
+          <div>
+            <p class="kicker">Who it serves</p>
+            <h2 class="section-heading">Built for people who talk for a living, or are about to.</h2>
+          </div>
+
+          <!-- Scroll-scrubbed acoustic compass -->
+          <svg class="compass-motif" viewBox="0 0 100 100" fill="none" aria-hidden="true">
+            <circle cx="50" cy="50" r="44" stroke="currentColor" stroke-width="1" stroke-dasharray="3 5"/>
+            <g class="compass-ring">
+              <circle cx="50" cy="50" r="32" stroke="currentColor" stroke-width="1.2"/>
+              <line x1="50" y1="10" x2="50" y2="24" stroke="#c25937" stroke-width="2"/>
+              <line x1="50" y1="76" x2="50" y2="90" stroke="currentColor" stroke-width="1.2"/>
+              <line x1="10" y1="50" x2="24" y2="50" stroke="currentColor" stroke-width="1.2"/>
+              <line x1="76" y1="50" x2="90" y2="50" stroke="currentColor" stroke-width="1.2"/>
+            </g>
+            <circle cx="50" cy="50" r="5" fill="#c25937"/>
+          </svg>
+        </div>
+
+        <div class="audience-grid reveal-on-scroll">
+          <article class="audience-cell">
+            <span class="audience-tag">01 · Campus</span>
             <h3>Students &amp; freshers</h3>
-            <p>Campus placements and first-job interviews without the nerves.</p>
-          </div>
-          <div class="person">
+            <p>Walk into placement interviews without stumbling through your own introduction.</p>
+          </article>
+          <article class="audience-cell">
+            <span class="audience-tag">02 · Pivot</span>
             <h3>Career switchers</h3>
-            <p>Practise telling a clear story about why you are changing paths.</p>
-          </div>
-          <div class="person">
+            <p>Turn a non-linear background into a crisp, confident narrative in under ninety seconds.</p>
+          </article>
+          <article class="audience-cell">
+            <span class="audience-tag">03 · Stage</span>
             <h3>Presenters</h3>
-            <p>Rehearse talks and pitches and keep to time.</p>
-          </div>
-          <div class="person">
+            <p>Rehearse product demos, standups, and investor pitches while keeping tight to time.</p>
+          </article>
+          <article class="audience-cell">
+            <span class="audience-tag">04 · Fluency</span>
             <h3>Non-native speakers</h3>
-            <p>Build fluency and confidence in a safe space.</p>
-          </div>
+            <p>Notice verbal crutches privately and build rhythm before speaking to a panel.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="container w-3xl section">
-      <h2 class="h2">Questions</h2>
-      <div class="faq-list">
-        <details>
-          <summary>Is my voice recording stored? <span class="plus">+</span></summary>
-          <p>In this demo, speech is transcribed in your browser and nothing is saved.</p>
-        </details>
-        <details>
-          <summary>Which browsers work for voice? <span class="plus">+</span></summary>
-          <p>Chrome and Edge support live speech recognition. In other browsers you can paste or type your answer instead.</p>
-        </details>
-        <details>
-          <summary>How is the score calculated? <span class="plus">+</span></summary>
-          <p>It combines your speaking pace (ideal 120 to 170 words per minute), how many filler words you use, and answer length.</p>
-        </details>
-        <details>
-          <summary>Is it free? <span class="plus">+</span></summary>
-          <p>The demo on this page is free to try.</p>
-        </details>
-      </div>
-    </section>
+    <!-- FAQ + Early Access -->
+    <section id="faq" class="section" style="border-bottom: none;">
+      <div class="container closing-grid">
+        <div class="reveal-on-scroll">
+          <p class="kicker">Details</p>
+          <h2 class="section-heading">Common questions</h2>
 
-    <!-- CTA / contact -->
-    <section id="contact" class="container w-2xl section cta">
-      <h2 class="h2">Get early access</h2>
-      <p class="lead">Leave your details and we will get in touch.</p>
-      <form id="contact-form">
-        <input class="field" name="name" required placeholder="Your name">
-        <input class="field" name="email" type="email" required placeholder="Email">
-        <textarea class="field" name="message" rows="3" placeholder="Anything you'd like to tell us? (optional)"></textarea>
-        <button type="submit" class="btn btn-solid submit">Join the list</button>
-        <p id="form-msg" class="form-msg" hidden></p>
-      </form>
+          <div class="faq-list">
+            <details>
+              <summary>Is my voice recording stored? <span class="faq-plus" aria-hidden="true">+</span></summary>
+              <p>No. Speech is transcribed in your browser, and your session analysis stays in your browser's local storage so your report page can load it.</p>
+            </details>
+            <details>
+              <summary>Which browsers work for live voice? <span class="faq-plus" aria-hidden="true">+</span></summary>
+              <p>Chrome and Edge support live Web Speech transcription and microphone audio reactivity. In Firefox or Safari you can type or paste your answer and run the exact same pacing analysis.</p>
+            </details>
+            <details>
+              <summary>How is the score calculated? <span class="faq-plus" aria-hidden="true">+</span></summary>
+              <p>It weighs speaking pace (ideal range 110–170 words per minute), filler-word density across 15 common phrases, and whether your answer has enough substance to include an example.</p>
+            </details>
+            <details>
+              <summary>Is the studio free to use? <span class="faq-plus" aria-hidden="true">+</span></summary>
+              <p>Yes — the practice studio and instant delivery report are free to try with no account needed.</p>
+            </details>
+          </div>
+        </div>
+
+        <aside id="contact" class="access-box reveal-on-scroll">
+          <p class="kicker">Early access</p>
+          <h2>Get notified on AI follow-up rounds</h2>
+          <p class="lead">We are building adaptive follow-up questions and saved progress tracking. Leave your email if you want early access.</p>
+
+          <form id="contact-form" class="access-form">
+            <input class="field" name="name" required placeholder="Your name" aria-label="Your name">
+            <input class="field" name="email" type="email" required placeholder="Email address" aria-label="Email address">
+            <textarea class="field" name="message" rows="3" placeholder="What role or talk are you preparing for? (optional)" aria-label="Message"></textarea>
+            <button type="submit" class="btn btn-solid">Join the list</button>
+            <p id="form-msg" class="form-msg" hidden></p>
+          </form>
+        </aside>
+      </div>
     </section>
 
   </main>
 
   <footer class="site-footer">
-    <div class="container w-6xl footer-inner">
+    <div class="container footer-inner">
       <span class="footer-brand">Interview Wallah</span>
       <span>Practise out loud. Walk in ready.</span>
       <span>&copy; <span id="year"></span> Interview Wallah</span>

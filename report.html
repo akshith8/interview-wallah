@@ -3,42 +3,137 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Report | Interview Wallah</title>
+  <title>Delivery Report — Interview Wallah</title>
+  <meta name="description" content="Detailed speaking pace, filler-word highlights, and coaching notes from your Interview Wallah session.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
   <header class="site-header">
-    <div class="container w-6xl header-inner">
-      <a href="index.html" class="brand">Interview Wallah</a>
-      <nav class="nav">
-        <a href="index.html#about">About</a>
-        <a href="index.html#practice">Try it</a>
-        <a href="index.html#built-for">Who it's for</a>
-        <a href="index.html#faq">FAQ</a>
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <svg class="brand-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="2" y="9" width="2.2" height="6" rx="1.1" fill="currentColor"/>
+          <rect x="6.5" y="5" width="2.2" height="14" rx="1.1" fill="currentColor"/>
+          <rect x="11" y="2" width="2.2" height="20" rx="1.1" fill="#c25937"/>
+          <rect x="15.5" y="6" width="2.2" height="12" rx="1.1" fill="currentColor"/>
+          <rect x="20" y="9" width="2.2" height="6" rx="1.1" fill="currentColor"/>
+        </svg>
+        <span>Interview Wallah</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html#about">How it works</a>
+        <a href="index.html#prompts">Prompts</a>
+        <a href="interview.html">Practice studio</a>
+        <a href="report.html?session=demo" aria-current="page">Delivery report</a>
       </nav>
-      <a href="index.html#practice" class="btn btn-solid header-cta">Start practising</a>
+
+      <div class="header-actions">
+        <a href="interview.html" class="btn btn-solid btn-sm">
+          New session <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
     </div>
   </header>
 
-  <main class="container w-3xl placeholder">
-    <h1 class="h2">Interview report</h1>
-    <p id="detail">This page is not built yet.</p>
-    <a href="index.html" class="btn btn-solid">Back to home</a>
+  <main class="container report-main" id="report-root">
+    <div class="report-header">
+      <div>
+        <p class="kicker" id="report-kicker">Session Report</p>
+        <h1 class="report-question" id="report-question">Loading report…</h1>
+      </div>
+      <div class="hero-actions" style="margin-top: 0;">
+        <a id="retry-link" href="interview.html" class="btn btn-outline btn-sm">Retry prompt</a>
+        <a href="interview.html" class="btn btn-solid btn-sm">Try another &rarr;</a>
+      </div>
+    </div>
+
+    <div class="report-grid">
+      <!-- Score & Core Telemetry -->
+      <section class="score-card" aria-label="Overall delivery score">
+        <div class="score-ring-wrap">
+          <svg class="score-ring-svg" viewBox="0 0 140 140" aria-hidden="true">
+            <circle class="score-ring-track" cx="70" cy="70" r="58"></circle>
+            <circle class="score-ring-arc" id="score-ring-arc" cx="70" cy="70" r="58" stroke-dasharray="364.42" stroke-dashoffset="364.42"></circle>
+          </svg>
+          <div class="score-ring-val">
+            <span class="score-num" id="report-score">0</span>
+            <span class="score-den">/ 100</span>
+          </div>
+        </div>
+
+        <div>
+          <div class="stat-strip">
+            <div class="stat-tile">
+              <div class="stat-tile-val" id="stat-wpm">0 wpm</div>
+              <div class="stat-tile-lbl">Speaking pace</div>
+            </div>
+            <div class="stat-tile">
+              <div class="stat-tile-val" id="stat-duration">0:00</div>
+              <div class="stat-tile-lbl">Duration</div>
+            </div>
+            <div class="stat-tile">
+              <div class="stat-tile-val" id="stat-words">0</div>
+              <div class="stat-tile-lbl">Total words</div>
+            </div>
+            <div class="stat-tile">
+              <div class="stat-tile-val" id="stat-fillers">0</div>
+              <div class="stat-tile-lbl">Filler words</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pace Band Motion Indicator -->
+      <section class="pace-band-card" aria-label="Speaking pace range">
+        <div class="cadence-header" style="margin-bottom: 0;">
+          <h2 style="font-family: var(--font-display); font-size: 1.35rem;">Pace band calibration</h2>
+          <span class="mono" id="pace-verdict" style="font-size: 0.85rem; color: var(--moss);">Optimal conversational zone</span>
+        </div>
+
+        <div class="pace-bar-track">
+          <div class="pace-sweet-zone" title="Ideal 120-170 WPM range"></div>
+          <div class="pace-needle" id="pace-needle" style="left: 50%;"></div>
+        </div>
+        <div class="pace-scale">
+          <span>60 wpm (Slow)</span>
+          <span>120–170 wpm (Sweet spot)</span>
+          <span>220+ wpm (Rushed)</span>
+        </div>
+      </section>
+
+      <!-- Annotated Transcript + Coaching Notes -->
+      <div class="report-panels">
+        <section class="report-box" aria-label="Annotated transcript">
+          <h2>Annotated transcript</h2>
+          <p class="section-lead" style="font-size: 0.875rem; margin-top: 0.35rem;">
+            Highlighted phrases indicate filler words that can be replaced with a brief pause.
+          </p>
+          <p class="annotated-transcript" id="report-transcript"></p>
+        </section>
+
+        <section class="report-box" aria-label="Coaching takeaways">
+          <h2>Coaching takeaways</h2>
+          <ul class="tips-list" id="report-tips"></ul>
+        </section>
+      </div>
+    </div>
   </main>
 
   <footer class="site-footer">
-    <div class="container w-6xl footer-inner">
+    <div class="container footer-inner">
       <span class="footer-brand">Interview Wallah</span>
       <span>Practise out loud. Walk in ready.</span>
       <span>&copy; <span id="year"></span> Interview Wallah</span>
     </div>
   </footer>
+
+  <script src="js/analyse.js"></script>
   <script src="js/script.js"></script>
-  <script>
-    /* Static sites have no /report/[sessionId] route, so the id is read from
-       the query string instead: report.html?session=abc123 */
-    var id = new URLSearchParams(location.search).get("session");
-    if (id) document.getElementById("detail").textContent = "Session: " + id + ". This page is not built yet.";
-  </script>
 </body>
 </html>

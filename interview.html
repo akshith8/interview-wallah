@@ -3,36 +3,145 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Interview | Interview Wallah</title>
+  <title>Practice Studio — Interview Wallah</title>
+  <meta name="description" content="Record or type an interview answer and get instant feedback on pace, filler words, and clarity.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
   <header class="site-header">
-    <div class="container w-6xl header-inner">
-      <a href="index.html" class="brand">Interview Wallah</a>
-      <nav class="nav">
-        <a href="index.html#about">About</a>
-        <a href="index.html#practice">Try it</a>
-        <a href="index.html#built-for">Who it's for</a>
-        <a href="index.html#faq">FAQ</a>
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <svg class="brand-mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="2" y="9" width="2.2" height="6" rx="1.1" fill="currentColor"/>
+          <rect x="6.5" y="5" width="2.2" height="14" rx="1.1" fill="currentColor"/>
+          <rect x="11" y="2" width="2.2" height="20" rx="1.1" fill="#c25937"/>
+          <rect x="15.5" y="6" width="2.2" height="12" rx="1.1" fill="currentColor"/>
+          <rect x="20" y="9" width="2.2" height="6" rx="1.1" fill="currentColor"/>
+        </svg>
+        <span>Interview Wallah</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html#about">How it works</a>
+        <a href="index.html#prompts">Prompts</a>
+        <a href="interview.html" aria-current="page">Practice studio</a>
+        <a href="report.html?session=demo">Sample report</a>
       </nav>
-      <a href="index.html#practice" class="btn btn-solid header-cta">Start practising</a>
+
+      <div class="header-actions">
+        <a href="index.html" class="btn btn-ghost btn-sm">&larr; Overview</a>
+      </div>
     </div>
   </header>
 
-  <main class="container w-3xl placeholder">
-    <h1 class="h2">Interview session</h1>
-    <p id="detail">This page is not built yet.</p>
-    <a href="index.html" class="btn btn-solid">Back to home</a>
+  <main class="container studio-main" id="practice">
+    <div class="studio-head">
+      <div>
+        <p class="kicker">Practice Studio</p>
+        <h1 class="section-heading">Speak your answer <em>out loud</em>.</h1>
+      </div>
+      <button type="button" id="sample-fill-btn" class="btn btn-ghost btn-sm">
+        Load sample take
+      </button>
+    </div>
+
+    <div class="studio-layout">
+      <!-- Main Recording & Transcript Surface -->
+      <section class="studio-panel" aria-label="Recording workspace">
+        <div id="q-tabs" class="prompt-picker" role="group" aria-label="Select a prompt"></div>
+
+        <div id="custom-prompt-wrap" class="custom-prompt-wrap" hidden>
+          <input id="custom-prompt-input" class="field" type="text" placeholder="Type your own interview question or talk title...">
+        </div>
+
+        <h2 id="question" class="studio-question"></h2>
+
+        <div class="visualizer-box">
+          <div class="visualizer-top">
+            <span id="viz-status">Microphone standby</span>
+            <span id="viz-mode" class="mono">0 Hz · Ready</span>
+          </div>
+          <canvas id="studio-wave" class="studio-canvas" width="680" height="120" aria-hidden="true"></canvas>
+        </div>
+
+        <div class="rec-controls">
+          <button id="rec-btn" type="button" class="btn btn-solid rec-btn">Start recording</button>
+          <span class="timer-pill" aria-live="off">
+            <span class="status-dot" id="rec-dot" aria-hidden="true"></span>
+            <span id="timer">0:00</span>
+          </span>
+        </div>
+
+        <p id="unsupported" class="unsupported-note" hidden>
+          Live speech transcription is not supported in this browser (use Chrome or Edge for mic transcription). You can still type or paste your spoken answer below and set the duration.
+        </p>
+
+        <textarea id="transcript" class="transcript-area" rows="6" placeholder="Speak out loud and your live transcript will appear here — or paste/type an answer to test..." aria-label="Answer transcript"></textarea>
+
+        <div class="studio-bottom-bar">
+          <label id="secs-label" class="secs-label">
+            Duration (seconds):
+            <input id="secs-input" class="secs-input" type="number" min="1" placeholder="45">
+          </label>
+
+          <button id="feedback-btn" type="button" class="btn btn-clay" disabled>
+            Analyse &amp; view report <span class="btn-arrow" aria-hidden="true">&rarr;</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Live Telemetry & Coaching Sidebar -->
+      <aside class="studio-sidebar" aria-label="Live session metrics">
+        <div class="sidebar-card">
+          <p class="kicker">Live Telemetry</p>
+          <h2>Real-time readouts</h2>
+          <div class="live-metrics">
+            <div class="mini-metric">
+              <div class="mini-metric-val" id="live-words">0</div>
+              <div class="mini-metric-lbl">Words</div>
+            </div>
+            <div class="mini-metric">
+              <div class="mini-metric-val" id="live-wpm">0</div>
+              <div class="mini-metric-lbl">Est. WPM</div>
+            </div>
+            <div class="mini-metric">
+              <div class="mini-metric-val" id="live-fillers">0</div>
+              <div class="mini-metric-lbl">Fillers</div>
+            </div>
+            <div class="mini-metric">
+              <div class="mini-metric-val" id="live-target">60s</div>
+              <div class="mini-metric-lbl">Suggested</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <p class="kicker">Before you start</p>
+          <h2>Three habits to aim for</h2>
+          <ul class="guide-list">
+            <li>Aim for 120–170 words per minute — conversational, not rushed.</li>
+            <li>Swap "um", "like", or "basically" for a clean half-second breath.</li>
+            <li>Anchor answers with one concrete example and measurable outcome.</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
   </main>
 
   <footer class="site-footer">
-    <div class="container w-6xl footer-inner">
+    <div class="container footer-inner">
       <span class="footer-brand">Interview Wallah</span>
       <span>Practise out loud. Walk in ready.</span>
       <span>&copy; <span id="year"></span> Interview Wallah</span>
     </div>
   </footer>
+
+  <script src="js/analyse.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>
