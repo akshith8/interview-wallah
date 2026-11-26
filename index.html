@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interview Wallah | AI mock interview coach</title>
+  <meta name="description" content="Practise interview answers and presentations out loud and get instant feedback on pace, filler words and structure.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container w-6xl header-inner">
+      <a href="#top" class="brand">Interview Wallah</a>
+      <nav class="nav">
+        <a href="#about">About</a>
+        <a href="#practice">Try it</a>
+        <a href="#built-for">Who it's for</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a href="#practice" class="btn btn-solid header-cta">Start practising</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- Hero -->
+    <section class="container w-6xl hero">
+      <p class="eyebrow">AI mock interview coach</p>
+      <h1>
+        Practise speaking <em>out loud</em>,<br class="md-br"> before it counts.
+      </h1>
+      <p class="hero-sub">
+        Answer interview questions or rehearse a presentation by voice and get instant
+        feedback on your pace, filler words and structure.
+      </p>
+      <div class="hero-actions">
+        <a href="#practice" class="btn btn-solid">Try a practice question</a>
+        <a href="#about" class="btn btn-ghost">How it works</a>
+      </div>
+    </section>
+
+    <!-- Marquee (items are filled in by script.js) -->
+    <section class="marquee" aria-label="Common interview questions">
+      <div class="marquee-track"></div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="container w-6xl section">
+      <h2 class="h2">Reading answers in your head is not practice.</h2>
+      <p class="about-text">
+        Interviews are spoken. Interview Wallah makes you rehearse the way you will perform,
+        and shows you exactly where your delivery slips.
+      </p>
+      <div class="grid steps">
+        <div class="step">
+          <span class="step-n">01</span>
+          <h3>Pick a question</h3>
+          <p>Choose a common interview question or bring your own talk.</p>
+        </div>
+        <div class="step">
+          <span class="step-n">02</span>
+          <h3>Speak your answer</h3>
+          <p>Record out loud, just like the real thing. No typing.</p>
+        </div>
+        <div class="step">
+          <span class="step-n">03</span>
+          <h3>Get feedback</h3>
+          <p>See your pace, filler words and a score, with tips to improve.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Practice demo -->
+    <section id="practice" class="container w-4xl section">
+      <h2 class="h2">Try it now</h2>
+      <p class="lead">Pick a question, answer out loud, and see how you did.</p>
+
+      <div class="card">
+        <div id="q-tabs" class="q-tabs"></div>
+        <p id="question" class="question"></p>
+
+        <div class="rec-row">
+          <button id="rec-btn" type="button" class="btn btn-solid rec-btn">Start recording</button>
+          <p id="unsupported" class="unsupported" hidden>
+            Voice input is not supported in this browser. Type your answer below and enter the time you took.
+          </p>
+          <span id="timer" class="timer">0:00</span>
+        </div>
+
+        <textarea id="transcript" class="transcript" rows="5" placeholder="Your transcript will appear here..."></textarea>
+
+        <label id="secs-label" class="secs-label">
+          Seconds taken:
+          <input id="secs-input" class="secs-input" type="number" min="1">
+        </label>
+
+        <button id="feedback-btn" type="button" class="btn btn-outline feedback-btn" disabled>Get feedback</button>
+
+        <div id="result" class="result" hidden></div>
+      </div>
+    </section>
+
+    <!-- Built for -->
+    <section id="built-for" class="built-for">
+      <div class="container w-6xl">
+        <h2>Built for people who talk for a living, or are about to.</h2>
+        <div class="grid people">
+          <div class="person">
+            <h3>Students &amp; freshers</h3>
+            <p>Campus placements and first-job interviews without the nerves.</p>
+          </div>
+          <div class="person">
+            <h3>Career switchers</h3>
+            <p>Practise telling a clear story about why you are changing paths.</p>
+          </div>
+          <div class="person">
+            <h3>Presenters</h3>
+            <p>Rehearse talks and pitches and keep to time.</p>
+          </div>
+          <div class="person">
+            <h3>Non-native speakers</h3>
+            <p>Build fluency and confidence in a safe space.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="container w-3xl section">
+      <h2 class="h2">Questions</h2>
+      <div class="faq-list">
+        <details>
+          <summary>Is my voice recording stored? <span class="plus">+</span></summary>
+          <p>In this demo, speech is transcribed in your browser and nothing is saved.</p>
+        </details>
+        <details>
+          <summary>Which browsers work for voice? <span class="plus">+</span></summary>
+          <p>Chrome and Edge support live speech recognition. In other browsers you can paste or type your answer instead.</p>
+        </details>
+        <details>
+          <summary>How is the score calculated? <span class="plus">+</span></summary>
+          <p>It combines your speaking pace (ideal 120 to 170 words per minute), how many filler words you use, and answer length.</p>
+        </details>
+        <details>
+          <summary>Is it free? <span class="plus">+</span></summary>
+          <p>The demo on this page is free to try.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- CTA / contact -->
+    <section id="contact" class="container w-2xl section cta">
+      <h2 class="h2">Get early access</h2>
+      <p class="lead">Leave your details and we will get in touch.</p>
+      <form id="contact-form">
+        <input class="field" name="name" required placeholder="Your name">
+        <input class="field" name="email" type="email" required placeholder="Email">
+        <textarea class="field" name="message" rows="3" placeholder="Anything you'd like to tell us? (optional)"></textarea>
+        <button type="submit" class="btn btn-solid submit">Join the list</button>
+        <p id="form-msg" class="form-msg" hidden></p>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container w-6xl footer-inner">
+      <span class="footer-brand">Interview Wallah</span>
+      <span>Practise out loud. Walk in ready.</span>
+      <span>&copy; <span id="year"></span> Interview Wallah</span>
+    </div>
+  </footer>
+
+  <script src="js/analyse.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
